@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Harsh Gohil – Senior Backend Developer & Full Stack Engineer with 8+ years of experience in Node.js, cloud, AI, and enterprise SaaS." />
+  <meta name="author" content="Harsh Gohil" />
+  <title>Harsh Gohil · Senior Backend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<!-- ========== CURSOR ========== -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- ========== NAV ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">HG<span class="dot">.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge reveal-up">Available for opportunities</div>
+    <h1 class="hero-title reveal-up">
+      <span class="line">Building backends</span>
+      <span class="line gradient-text">that scale.</span>
+    </h1>
+    <p class="hero-sub reveal-up">
+      Senior Backend Developer · 8+ Years · Node.js · AWS · AI
+    </p>
+    <div class="hero-actions reveal-up">
+      <a href="#projects" class="btn btn-primary">View Work</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-scroll reveal-up">
+      <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+  </div>
+  <div class="hero-photo-wrap reveal-right">
+    <div class="photo-ring ring-1"></div>
+    <div class="photo-ring ring-2"></div>
+    <div class="photo-ring ring-3"></div>
+    <div class="photo-card">
+      <img src="/images/harsh.jpg" alt="Harsh Gohil" class="hero-photo" />
+      <div class="photo-overlay"></div>
+      <div class="photo-badge">
+        <span class="badge-icon">⚡</span>
+        <span>8+ Yrs Exp</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num" data-target="8">0</span><span class="stat-plus">+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="30">0</span><span class="stat-plus">+</span>
+      <span class="stat-label">Projects Delivered</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="15">0</span><span class="stat-plus">+</span>
+      <span class="stat-label">Technologies</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+      <span class="stat-num" data-target="3">0</span><span class="stat-plus"></span>
+      <span class="stat-label">Industries</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-label reveal-up">About Me</div>
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <h2 class="section-title">Results-driven engineer, <em>problem-first</em> thinker.</h2>
+        <p>I'm a Senior Backend Developer based in Mumbai, India with 8+ years designing and delivering scalable, enterprise-grade SaaS products across pharmaceuticals, analytics, and media.</p>
+        <p>From API design and database modelling to cloud deployment and AI chatbots — I own the architecture end-to-end, both as a team lead and independently.</p>
+        <div class="about-tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">Microservices</span>
+          <span class="tag">AWS</span>
+          <span class="tag">AI / Chatbots</span>
+          <span class="tag">BI Tools</span>
+          <span class="tag">FFMPEG</span>
+        </div>
+        <div class="about-links">
+          <a href="https://linkedin.com/in/harsh-gohil-242706194" target="_blank" rel="noopener" class="icon-link">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/iharsh220" target="_blank" rel="noopener" class="icon-link">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      <div class="about-card-wrap reveal-right">
+        <div class="about-3d-card" id="about3dCard">
+          <div class="card-inner">
+            <div class="card-face card-front">
+              <div class="card-avatar">
+                <img src="/images/harsh.jpg" alt="Harsh Gohil" />
+              </div>
+              <h3>Harsh Gohil</h3>
+              <p>Senior Backend Developer</p>
+              <span class="card-tag">Alembic Pharmaceuticals</span>
+            </div>
+          </div>
+          <div class="floating-chip chip-1">Node.js</div>
+          <div class="floating-chip chip-2">AWS</div>
+          <div class="floating-chip chip-3">AI</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SKILLS ========== -->
+<section class="section skills-section" id="skills">
+  <div class="container">
+    <div class="section-label reveal-up">Technical Expertise</div>
+    <h2 class="section-title text-center reveal-up">Built with the right tools.</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal-up" data-delay="0">
+        <div class="skill-icon">⚙️</div>
+        <h3>Backend</h3>
+        <div class="skill-tags">
+          <span>Node.js</span><span>Express.js</span><span>Nest.js</span>
+          <span>Microservices</span><span>REST APIs</span><span>Redis</span>
+        </div>
+      </div>
+      <div class="skill-card reveal-up" data-delay="100">
+        <div class="skill-icon">🗄️</div>
+        <h3>Databases</h3>
+        <div class="skill-tags">
+          <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span>
+          <span>Elasticsearch</span>
+        </div>
+      </div>
+      <div class="skill-card reveal-up" data-delay="200">
+        <div class="skill-icon">🌐</div>
+        <h3>Frontend</h3>
+        <div class="skill-tags">
+          <span>ReactJS</span><span>Next.js</span><span>AngularJS</span>
+          <span>JavaScript</span><span>Bootstrap</span><span>Material UI</span>
+        </div>
+      </div>
+      <div class="skill-card reveal-up" data-delay="300">
+        <div class="skill-icon">☁️</div>
+        <h3>Cloud & DevOps</h3>
+        <div class="skill-tags">
+          <span>AWS EC2</span><span>Lambda</span><span>Azure</span>
+          <span>GCP</span><span>Nginx</span><span>PM2</span>
+        </div>
+      </div>
+      <div class="skill-card reveal-up" data-delay="400">
+        <div class="skill-icon">🤖</div>
+        <h3>AI / Chatbots</h3>
+        <div class="skill-tags">
+          <span>Dialogflow</span><span>Rasa</span><span>Alexa Skills</span>
+          <span>MS Bot Framework</span><span>WhatsApp API</span><span>Retell</span>
+        </div>
+      </div>
+      <div class="skill-card reveal-up" data-delay="500">
+        <div class="skill-icon">📊</div>
+        <h3>BI Tools</h3>
+        <div class="skill-tags">
+          <span>Qlik Sense API</span><span>Power BI</span><span>Tableau</span>
+          <span>FFMPEG</span><span>Meta Ads API</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EXPERIENCE ========== -->
+<section class="section experience-section" id="experience">
+  <div class="container">
+    <div class="section-label reveal-up">Career Timeline</div>
+    <h2 class="section-title reveal-up">Where I've built things.</h2>
+    <div class="timeline">
+
+      <div class="timeline-item reveal-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-meta">Mar 2024 – Present</div>
+          <h3 class="timeline-role">Senior Backend Developer</h3>
+          <div class="timeline-company">Alembic Pharmaceuticals Limited</div>
+          <p>Designing scalable backend APIs, database integrations, and cloud deployments on AWS EC2 with Nginx and PM2 for critical pharmaceutical industry applications.</p>
+          <div class="timeline-tags">
+            <span>Node.js</span><span>FFMPEG</span><span>ReactJS</span><span>MySQL</span><span>AWS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-meta">Mar 2018 – Mar 2024 · 6 years</div>
+          <h3 class="timeline-role">Senior Full Stack Developer & Team Lead</h3>
+          <div class="timeline-company">Predoole Analytics Pvt. Ltd.</div>
+          <p>Led a cross-functional team of 6 engineers building enterprise analytics and data integration products. Owned architecture decisions, code reviews, sprint planning, and client delivery.</p>
+          <div class="timeline-tags">
+            <span>Node.js</span><span>Qlik Sense</span><span>Dialogflow</span><span>Elasticsearch</span><span>ReactJS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-meta">2016 – 2022</div>
+          <h3 class="timeline-role">Backend & Full Stack Developer</h3>
+          <div class="timeline-company">Independent Freelance Consultant</div>
+          <p>Delivered bespoke backend solutions for clients across media, marketing, and communications sectors — specialising in video streaming, API integrations, and intelligent chatbot systems.</p>
+          <div class="timeline-tags">
+            <span>Node.js</span><span>Bunny API</span><span>MongoDB</span><span>Meta Ads API</span><span>Retell</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROJECTS ========== -->
+<section class="section projects-section" id="projects">
+  <div class="container">
+    <div class="section-label reveal-up">Selected Projects</div>
+    <h2 class="section-title reveal-up">Work that shipped.</h2>
+    <div class="projects-grid">
+
+      <div class="project-card reveal-up" data-delay="0">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <span class="project-num">01</span>
+          <div class="project-stack"><span>Node.js</span><span>FFMPEG</span></div>
+        </div>
+        <h3>Video Framer</h3>
+        <p>Engineered a video generation system using FFMPEG that overlays doctor photos and names onto promotional videos — enabling personalised content at scale for medical field representatives. Reduced manual editing to zero.</p>
+        <div class="project-impact">⚡ 100% automation of video production</div>
+      </div>
+
+      <div class="project-card reveal-up" data-delay="100">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <span class="project-num">02</span>
+          <div class="project-stack"><span>Node.js</span><span>Qlik Sense</span><span>Dialogflow</span></div>
+        </div>
+        <h3>Multi-Platform Chatbot</h3>
+        <p>Architected a chatbot system that fetches live charts and KPIs from Qlik Sense, delivering them across Teams, Google Assistant, Alexa, WhatsApp, and Telegram — from a single backend.</p>
+        <div class="project-impact">📊 Eliminated ad-hoc BI reporting requests</div>
+      </div>
+
+      <div class="project-card reveal-up" data-delay="200">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <span class="project-num">03</span>
+          <div class="project-stack"><span>Node.js</span><span>ChatGPT API</span><span>ReactJS</span></div>
+        </div>
+        <h3>Tableau → Power BI Migration</h3>
+        <p>Led LLM-assisted automated conversion of Tableau scripts to Power BI using transformation pipelines, cutting migration effort by ~60% versus manual rewrite.</p>
+        <div class="project-impact">🚀 60% reduction in migration effort</div>
+      </div>
+
+      <div class="project-card reveal-up" data-delay="300">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <span class="project-num">04</span>
+          <div class="project-stack"><span>Node.js</span><span>Bunny API</span><span>MongoDB</span></div>
+        </div>
+        <h3>Multiplex OTT Platform</h3>
+        <p>Architected a full OTT platform where channel owners upload movies and web series. Videos transcoded via Bunny API into HLS format for adaptive streaming on Android and web.</p>
+        <div class="project-impact">🎬 Full content ingestion pipeline</div>
+      </div>
+
+      <div class="project-card reveal-up" data-delay="400">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <span class="project-num">05</span>
+          <div class="project-stack"><span>Python</span><span>Node.js</span><span>Elasticsearch</span></div>
+        </div>
+        <h3>Log Cluster</h3>
+        <p>Built a web app to cluster and visualise large-scale log data from Elasticsearch, dramatically cutting mean-time-to-diagnose for operations teams.</p>
+        <div class="project-impact">🔍 Faster incident diagnosis</div>
+      </div>
+
+      <div class="project-card reveal-up" data-delay="500">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <span class="project-num">06</span>
+          <div class="project-stack"><span>Node.js</span><span>ReactJS</span><span>Microservices</span></div>
+        </div>
+        <h3>DataAccessAuditor Portal</h3>
+        <p>Built a full Qlik Sense Section Access management portal with role-based access control, audit logging, and data security enforcement for enterprise governance.</p>
+        <div class="project-impact">🔐 Enterprise-grade data governance</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-label reveal-up">Get In Touch</div>
+    <h2 class="section-title text-center reveal-up">Let's build something<br><em>great together.</em></h2>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <div class="contact-card">
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong>Location</strong>
+              <span>Mumbai, Maharashtra, India</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📧</span>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:iharsh220@zohomail.in">iharsh220@zohomail.in</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">📱</span>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:+918080302041">+91 80803 02041</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">💼</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://linkedin.com/in/harsh-gohil-242706194" target="_blank" rel="noopener">harsh-gohil-242706194</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal-right">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project..." required rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-loader" style="display:none">Sending…</span>
+          </button>
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">HG<span class="dot">.</span></div>
+      <p>Built with Node.js · Designed with intent · © 2025 Harsh Gohil</p>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/harsh-gohil-242706194" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/iharsh220" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:iharsh220@zohomail.in">Email</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
