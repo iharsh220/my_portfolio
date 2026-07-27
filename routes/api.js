@@ -6,6 +6,13 @@ function sanitize(str) {
   return String(str).replace(/[<>]/g, '').trim().slice(0, 500);
 }
 
+console.log({
+  SMTP_HOST: process.env.SMTP_HOST,
+  SMTP_PORT: process.env.SMTP_PORT,
+  SMTP_USER: process.env.SMTP_USER ? "Loaded" : "Missing",
+  SMTP_PASS: process.env.SMTP_PASS ? "Loaded" : "Missing",
+});
+
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.zoho.in',
   port: parseInt(process.env.SMTP_PORT || '465'),
