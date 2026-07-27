@@ -4,6 +4,33 @@
    HARSH GOHIL PORTFOLIO — JavaScript
    ============================================================ */
 
+// ── 1. CHAT BOT TOGGLE ───────────────────────────────────────
+(function initChat() {
+  const bubble = document.getElementById('chatBubble');
+  const popup  = document.getElementById('chatPopup');
+  const close  = document.getElementById('chatClose');
+  if (!bubble || !popup) return;
+
+  const iconOpen  = bubble.querySelector('.chat-open');
+  const iconClose = bubble.querySelector('.chat-close');
+
+  function openChat() {
+    popup.classList.add('open');
+    iconOpen.style.display  = 'none';
+    iconClose.style.display = 'inline';
+  }
+  function closeChat() {
+    popup.classList.remove('open');
+    iconOpen.style.display  = 'inline';
+    iconClose.style.display = 'none';
+  }
+
+  bubble.addEventListener('click', () => {
+    popup.classList.contains('open') ? closeChat() : openChat();
+  });
+  close.addEventListener('click', closeChat);
+})();
+
 // ── 1. CURSOR ───────────────────────────────────────────────
 (function initCursor() {
   const cursor = document.getElementById('cursor');
