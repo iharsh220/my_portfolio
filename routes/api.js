@@ -1,13 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const nodemailer = require('nodemailer');
 
-// Input sanitizer (simple)
 function sanitize(str) {
   return String(str).replace(/[<>]/g, '').trim().slice(0, 500);
 }
 
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST || 'smtp.zoho.in',
+  port: parseInt(process.env.SMTP_PORT || '465'),
+  secure: true,
+  auth: {
+    user: process.env.SMTP_USER || 'iharsh220@zohomail.in',
+    pass: process.env.SMTP_PASS || '',
+  },
+});
+
 // POST /api/contact
-router.post('/contact', (req, res) => {
+router.post('/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
@@ -23,10 +33,25 @@ router.post('/contact', (req, res) => {
   const cleanEmail = sanitize(email);
   const cleanMessage = sanitize(message);
 
-  // Log to console (replace with nodemailer / DB in production)
-  console.log('📩 Contact Form Submission:', { cleanName, cleanEmail, cleanMessage });
-
-  res.json({ success: true, message: 'Message received! I will get back to you soon.' });
+  try {
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${process.env.SMTP_USER || 'iharsh220@zohomail.in'}>`,
+      to: 'iharsh220@zohomail.in',
+      replyTo: cleanEmail,
+      subject: `New message from ${cleanName}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${cleanName}</p>
+        <p><strong>Email:</strong> <a href="mailto:${cleanEmail}">${cleanEmail}</a></p>
+        <p><strong>Message:</strong></p>
+        <p>${cleanMessage.replace(/\n/g, '<br>')}</p>
+      `,
+    });
+    res.json({ success: true, message: 'Message received! I will get back to you soon.' });
+  } catch (err) {
+    console.error('Mail error:', err.message);
+    res.status(500).json({ success: false, error: 'Failed to send message. Please try again.' });
+  }
 });
 
 // GET /api/health
