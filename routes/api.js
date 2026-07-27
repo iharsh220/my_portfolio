@@ -7,12 +7,12 @@ function sanitize(str) {
 }
 
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST || 'smtp.zoho.in',
-  port: parseInt(process.env.SMTP_PORT || '465'),
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT),
   secure: true,
   auth: {
-    user: process.env.SMTP_USER || 'iharsh220@zohomail.in',
-    pass: process.env.SMTP_PASS || '',
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
 });
 

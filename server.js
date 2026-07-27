@@ -68,6 +68,14 @@ app.use(morgan('combined'));
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 
+// Resume download
+app.get('/resume', (req, res) => {
+  res.download(
+    path.join(__dirname, 'files', 'resume', 'Harsh_Gohil_Backend_Enginner_.pdf'),
+    'Harsh_Gohil_Resume.pdf'
+  );
+});
+
 // Static files with cache headers
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '1d',
