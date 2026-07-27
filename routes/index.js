@@ -5,36 +5,10 @@ const router = express.Router();
 
 const indexHtmlPath = path.join(__dirname, '../views/index.html');
 
-function getIndexHtml() {
+router.get('/', (req, res) => {
   let html = fs.readFileSync(indexHtmlPath, 'utf-8');
   const botUrl = process.env.BOT_URL || '';
-  if (botUrl) {
-    const bubbleHtml = `
-<div class="chat-bubble" id="chatBubble">
-  <div class="chat-bubble-dot"></div>
-</div>
-<div class="chat-popup" id="chatPopup">
-  <div class="chat-popup-header">
-    <div class="chat-popup-info">
-      <div class="chat-popup-avatar">HG</div>
-      <div>
-        <p class="chat-popup-name">Harsh's Assistant</p>
-        <p class="chat-popup-status"><span class="chat-online-dot"></span>Online</p>
-      </div>
-    </div>
-    <button class="chat-popup-close" id="chatClose">&times;</button>
-  </div>
-  <div class="chat-popup-body">
-    <iframe src="${botUrl}" title="Chat with Harsh's Assistant" allow="microphone"></iframe>
-  </div>
-</div>`;
-    html = html.replace('<!-- BOT_INJECT -->', bubbleHtml);
-  }
-  return html;
-}
-
-router.get('/', (req, res) => {
-  const html = getIndexHtml();
+  html = html.replace(/src=""/, botUrl ? `src="${botUrl}"` : 'src=""');
   res.setHeader('Content-Type', 'text/html');
   res.send(html);
 });
