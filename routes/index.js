@@ -1,13 +1,44 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const router = express.Router();
 
-// Home / Portfolio
+const indexHtmlPath = path.join(__dirname, '../views/index.html');
+
+function getIndexHtml() {
+  let html = fs.readFileSync(indexHtmlPath, 'utf-8');
+  const botUrl = process.env.BOT_URL || '';
+  if (botUrl) {
+    const bubbleHtml = `
+<div class="chat-bubble" id="chatBubble">
+  <div class="chat-bubble-dot"></div>
+</div>
+<div class="chat-popup" id="chatPopup">
+  <div class="chat-popup-header">
+    <div class="chat-popup-info">
+      <div class="chat-popup-avatar">HG</div>
+      <div>
+        <p class="chat-popup-name">Harsh's Assistant</p>
+        <p class="chat-popup-status"><span class="chat-online-dot"></span>Online</p>
+      </div>
+    </div>
+    <button class="chat-popup-close" id="chatClose">&times;</button>
+  </div>
+  <div class="chat-popup-body">
+    <iframe src="${botUrl}" title="Chat with Harsh's Assistant" allow="microphone"></iframe>
+  </div>
+</div>`;
+    html = html.replace('<!-- BOT_INJECT -->', bubbleHtml);
+  }
+  return html;
+}
+
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/index.html'));
+  const html = getIndexHtml();
+  res.setHeader('Content-Type', 'text/html');
+  res.send(html);
 });
 
-// Individual sections as routes (SPA-style with hash, but also direct links)
 router.get('/about', (req, res) => res.redirect('/#about'));
 router.get('/skills', (req, res) => res.redirect('/#skills'));
 router.get('/projects', (req, res) => res.redirect('/#projects'));
