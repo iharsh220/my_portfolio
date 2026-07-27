@@ -31,6 +31,7 @@ const limiter = rateLimit({
   max: 200,
   standardHeaders: true,
   legacyHeaders: false,
+  keyGenerator: (req, res) => req.headers['x-forwarded-for'] || req.ip,
   message: { error: 'Too many requests, please try again later.' },
 });
 app.use(limiter);
@@ -39,6 +40,7 @@ app.use(limiter);
 const contactLimiter = rateLimit({
   windowMs: 60 * 60 * 1000,
   max: 5,
+  keyGenerator: (req, res) => req.headers['x-forwarded-for'] || req.ip,
   message: { error: 'Too many contact submissions. Please wait an hour.' },
 });
 
