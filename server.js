@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const { ipKeyGenerator } = require('express-rate-limit');
 const compression = require('compression');
 const morgan = require('morgan');
 const path = require('path');
@@ -31,7 +32,13 @@ const limiter = rateLimit({
   max: 200,
   standardHeaders: true,
   legacyHeaders: false,
-  keyGenerator: (req, res) => req.headers['x-forwarded-for'] || req.ip,
+  keyGenerator: (req, res) => {
+    const forwardedFor = req.headers['x-forwarded-for'];
+    const ip = forwardedFor
+      ? forwardedFor.split(',')[0].trim()
+      : req.ip;
+    return ipKeyGenerator(ip);
+  },
   message: { error: 'Too many requests, please try again later.' },
 });
 app.use(limiter);
@@ -40,7 +47,13 @@ app.use(limiter);
 const contactLimiter = rateLimit({
   windowMs: 60 * 60 * 1000,
   max: 5,
-  keyGenerator: (req, res) => req.headers['x-forwarded-for'] || req.ip,
+  keyGenerator: (req, res) => {
+    const forwardedFor = req.headers['x-forwarded-for'];
+    const ip = forwardedFor
+      ? forwardedFor.split(',')[0].trim()
+      : req.ip;
+    return ipKeyGenerator(ip);
+  },
   message: { error: 'Too many contact submissions. Please wait an hour.' },
 });
 
