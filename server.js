@@ -41,6 +41,8 @@ const limiter = rateLimit({
     return ipKeyGenerator(ip);
   },
   message: { error: 'Too many requests, please try again later.' },
+  // Video streaming issues many byte-range requests; don't count static assets
+  skip: (req) => /^\/(demos|css|js|images|assets)\//.test(req.path),
 });
 app.use(limiter);
 
@@ -75,6 +77,21 @@ app.get('/resume', (req, res) => {
     'Harsh_Gohil_Resume.pdf'
   );
 });
+
+// Windows demo app download
+app.get('/download/data-access-auditor', (req, res) => {
+  res.download(
+    path.join(__dirname, 'public', 'assets', 'executive', 'Windows_Executive_Data_Access_Auditor', 'DataAccessAuditor.exe'),
+    'DataAccessAuditor.exe'
+  );
+});
+
+// Demo videos & posters: long cache, byte-range streaming handled by express.static
+app.use('/demos', express.static(path.join(__dirname, 'public', 'demos'), {
+  maxAge: '30d',
+  etag: true,
+  acceptRanges: true,
+}));
 
 // Static files with cache headers
 app.use(express.static(path.join(__dirname, 'public'), {

@@ -27,6 +27,25 @@ portfolio/
 │   └── 404.html
 ```
 
+## 🎬 Live Demos
+
+The **Live Demos** section is driven by `public/js/demos.js`. Web-ready videos live in
+`public/demos/<project>/` (`.mp4` + `.jpg` poster). Raw recordings in `public/assets/videos/`
+are git-ignored. Browsers can't play `.wmv`, so convert first:
+
+```bash
+ffmpeg -i in.wmv -vf "scale='min(1280,iw)':-2,format=yuv420p" \
+  -c:v libx264 -crf 27 -preset slow -c:a aac -b:a 96k -movflags +faststart out.mp4
+ffmpeg -ss 30 -i out.mp4 -frames:v 1 -vf scale=640:-2 out.jpg   # poster
+```
+
+The Windows app is served from `/download/data-access-auditor`.
+
+## 🌗 Theme
+
+Follows the visitor's system light/dark setting by default; the nav toggle cycles
+Auto → Light → Dark and remembers the choice in `localStorage`.
+
 ## 🔒 Security Features
 
 - **Helmet.js** — HTTP security headers (CSP, HSTS, XSS protection)

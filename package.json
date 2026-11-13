@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Harsh Gohil portfolio: Node.js/Express, WebGL hero, live product demos",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,5 +20,8 @@
     "helmet": "^8.3.0",
     "morgan": "^1.11.0",
     "nodemailer": "^9.0.3"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

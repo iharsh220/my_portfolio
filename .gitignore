@@ -4,3 +4,6 @@ package-lock.json
 .DS_Store
 *.log
 npm-debug.log*
+
+# Raw demo recordings (web-optimised copies live in public/demos/)
+public/assets/videos/
