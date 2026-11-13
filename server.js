@@ -10,6 +10,11 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Origin of the web chat (BOT_URL) so the iframe is allowed by CSP
+function botOrigin() {
+  try { return [new URL(process.env.BOT_URL).origin]; } catch (e) { return []; }
+}
+
 // Security headers via Helmet (customized for inline scripts/styles in portfolio)
 app.use(helmet({
   contentSecurityPolicy: {
@@ -20,7 +25,7 @@ app.use(helmet({
       fontSrc: ["'self'", "fonts.gstatic.com", "cdnjs.cloudflare.com"],
       imgSrc: ["'self'", "data:", "blob:"],
       connectSrc: ["'self'", "https://webchat.botframework.com"],
-      frameSrc: ["https://webchat.botframework.com"],
+      frameSrc: ["https://webchat.botframework.com", ...botOrigin()],
       objectSrc: ["'none'"],
     },
   },

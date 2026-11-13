@@ -650,7 +650,7 @@ a.contact-item:hover .contact-arrow { transform: rotate(45deg); color: var(--pin
 .chat-bubble-dot { position: absolute; top: 4px; right: 4px; width: 13px; height: 13px; border-radius: 50%; background: var(--pink); border: 2px solid var(--bg); }
 .chat-popup {
   position: fixed; bottom: 98px; right: 24px; z-index: 1100;
-  width: 380px; height: 540px; max-height: calc(100vh - 130px);
+  width: 400px; height: 640px; max-height: calc(100vh - 130px);
   border-radius: 22px; overflow: hidden; display: flex; flex-direction: column;
   background: var(--surface-solid); border: 1px solid var(--line-strong); box-shadow: var(--shadow);
   opacity: 0; visibility: hidden; transform: translateY(20px) scale(0.94); transform-origin: bottom right;
@@ -665,7 +665,7 @@ a.contact-item:hover .contact-arrow { transform: rotate(45deg); color: var(--pin
 .chat-online-dot { width: 7px; height: 7px; border-radius: 50%; background: #22e37a; }
 .chat-popup-close { color: var(--bg); font-size: 1.6rem; line-height: 1; width: 34px; height: 34px; border-radius: 50%; }
 .chat-popup-close:hover { background: rgba(127, 127, 127, 0.2); }
-.chat-popup-body { flex: 1; background: #fff; }
+.chat-popup-body { flex: 1; background: var(--bg); }
 .chat-popup-body iframe { width: 100%; height: 100%; border: 0; display: block; }
 
 /* ── 18b. POLISH: ambient glows, card accents ──────────────── */
@@ -743,7 +743,7 @@ a.contact-item:hover .contact-arrow { transform: rotate(45deg); color: var(--pin
   .timeline-line { left: 8px; }
   .timeline-dot { left: -36px; }
   .chat-bubble { bottom: 16px; right: 16px; width: 54px; height: 54px; }
-  .chat-popup { right: 12px; left: 12px; width: auto; bottom: 82px; height: 70vh; }
+  .chat-popup { right: 12px; left: 12px; width: auto; bottom: 82px; height: calc(100dvh - 100px); max-height: none; }
   .footer-inner { flex-direction: column; text-align: center; }
 }
 

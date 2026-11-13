@@ -592,18 +592,39 @@ function initHero3D() {
 (function initChat() {
   const bubble = $('#chatBubble');
   const popup = $('#chatPopup');
-  const close = $('#chatClose');
   if (!bubble || !popup) return;
+  const frame = $('iframe', popup);
   const iconOpen = $('.chat-open', bubble);
   const iconClose = $('.chat-close', bubble);
+  const src = frame && frame.dataset.src;
+  let origin = '*';
+  try { origin = new URL(src, location.href).origin; } catch (e) {}
+  const post = msg => { try { frame.contentWindow && frame.contentWindow.postMessage(msg, origin); } catch (e) {} };
+  const themeNow = () => document.documentElement.getAttribute('data-theme') || 'system';
+  const sendTheme = () => post({ type: 'hg-theme', theme: themeNow() });
+
   const set = open => {
+    if (open && frame && !frame.getAttribute('src') && src && !src.startsWith('__')) {
+      const u = new URL(src, location.href);
+      u.searchParams.set('theme', Theme.isDark() ? 'dark' : 'light');
+      frame.src = u.toString();
+    }
     popup.classList.toggle('open', open);
     iconOpen.style.display = open ? 'none' : 'inline';
     iconClose.style.display = open ? 'inline' : 'none';
     bubble.setAttribute('aria-label', open ? 'Close chat' : 'Open chat');
+    post({ type: 'hg-chat-state', open });
   };
   bubble.addEventListener('click', () => set(!popup.classList.contains('open')));
-  close.addEventListener('click', () => set(false));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && popup.classList.contains('open')) set(false); });
+  window.addEventListener('themechange', sendTheme);
+  window.addEventListener('message', e => {
+    if (!frame || e.source !== frame.contentWindow) return;
+    const d = e.data || {};
+    if (d.type === 'hg-chat-ready') { sendTheme(); post({ type: 'hg-chat-state', open: popup.classList.contains('open') }); }
+    if (d.type === 'hg-chat-close') set(false);
+    if (d.type === 'hg-chat-nav' && typeof d.hash === 'string' && d.hash.startsWith('#')) { set(false); location.hash = d.hash; }
+  });
 })();
 
 // ── MISC ──────────────────────────────────────────────────────
