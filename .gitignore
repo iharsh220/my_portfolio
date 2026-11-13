@@ -7,3 +7,6 @@ npm-debug.log*
 
 # Raw demo recordings (web-optimised copies live in public/demos/)
 public/assets/videos/
+
+# Claude Code project notes (kept local, reused across projects)
+CLAUDE.md

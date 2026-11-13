@@ -126,7 +126,6 @@ const Theme = (() => {
   const toggle = $('#navToggle');
   const links = $('#navLinks');
   const progress = $('#scrollProgress');
-  let lastY = window.scrollY;
 
   function close() { toggle.classList.remove('open'); links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
 
@@ -134,8 +133,7 @@ const Theme = (() => {
     const y = window.scrollY;
     const max = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
-    if (!links.classList.contains('open')) nav.classList.toggle('hide', y > lastY && y > 400);
-    lastY = y;
+    nav.classList.toggle('scrolled', y > 40);
   }, { passive: true });
 
   toggle.addEventListener('click', () => {

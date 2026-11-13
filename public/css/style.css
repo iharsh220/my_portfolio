@@ -176,7 +176,9 @@ body.has-cursor .cursor, body.has-cursor .cursor-dot { opacity: 1; }
 
 /* ── 5. NAV ────────────────────────────────────────────────── */
 .nav { position: fixed; top: 16px; left: 0; right: 0; z-index: 1000; padding: 0 var(--gutter); transition: transform 0.5s var(--ease); }
-.nav.hide { transform: translateY(-140%); }
+/* Always visible; slightly tighter & more solid once the page is scrolled */
+.nav.scrolled { transform: translateY(-6px); }
+.nav.scrolled .nav-inner { background: color-mix(in srgb, var(--surface-solid) 88%, transparent); border-color: var(--line-strong); box-shadow: 0 14px 40px -18px rgba(0, 0, 0, 0.55); }
 .nav-inner {
   max-width: var(--container); margin: 0 auto;
   display: flex; align-items: center; gap: 12px;
